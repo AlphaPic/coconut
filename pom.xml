@@ -80,8 +80,8 @@
     </dependencies>
 
     <modules>
+        <module>coconut-common</module>
         <module>coconut-server</module>
         <module>coconut-client</module>
-        <module>coconut-common</module>
     </modules>
 </project>
