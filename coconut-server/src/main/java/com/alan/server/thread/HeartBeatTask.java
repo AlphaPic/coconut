@@ -21,7 +21,7 @@ public class HeartBeatTask implements Runnable {
 	public void run() {
 		while (true) {
 			if (handler != null) {
-				handler.checkHeatBeat();
+				handler.checkHeatBeat("");
 			}
 			TimeUtil.sleep(1,TimeUnit.SECONDS);
 		}

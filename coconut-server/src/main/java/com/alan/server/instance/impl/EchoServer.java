@@ -49,12 +49,11 @@ public class EchoServer implements IServer {
 				.childHandler(new ChannelInitializer<SocketChannel>() {
 					@Override
 					protected void initChannel(SocketChannel ch) {
-						ch.pipeline().addLast(heartBeatHandler).addLast(codec);
+						ch.pipeline().addLast(codec).addLast(heartBeatHandler);
 					}
 				});
 			ChannelFuture f = serverBootstrap.bind().sync();
 			logger.info("bind on port [ 8080 ] :)");
-			executor.submit(task);
 			f.channel().closeFuture().sync();
 		}finally {
 			group.shutdownGracefully().sync();

@@ -1,6 +1,7 @@
 package com.alan.common.vo;
 
 import com.alan.common.constant.MessageTransferType;
+import com.alan.common.constant.MessageType;
 import lombok.*;
 
 import java.io.Serializable;
@@ -22,6 +23,7 @@ public class MessageInfo implements Serializable {
 	private Date createAt;
 
 	private MessageTransferType messageTransferType;
+	private MessageType         messageType;
 
 	private Long                fromUid;
 	private Long                toUid;

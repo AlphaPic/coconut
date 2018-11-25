@@ -32,6 +32,6 @@ public class ObjectJsonCodec extends MessageToMessageCodec<ByteBuf, MessageInfo>
 	protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) throws Exception {
 		String message = msg.toString(CharsetUtil.UTF_8);
 		MessageInfo messageInfo = JSON.parseObject(message, MessageInfo.class);
-		logger.info(messageInfo.toString());
+		super.channelRead(ctx,messageInfo);
 	}
 }
