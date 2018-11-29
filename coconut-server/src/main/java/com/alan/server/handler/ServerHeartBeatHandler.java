@@ -41,6 +41,8 @@ public class ServerHeartBeatHandler extends ChannelInboundHandlerAdapter {
 		MessageInfo messageInfo = (MessageInfo) msg;
 		if (messageInfo.getMessageType() == MessageType.HEART_BEAT && checkHeatBeat(ctx.channel().id().asLongText())){
 			ctx.writeAndFlush(MessageUtil.generateHeartBeatMessage()).sync();
+			//不做后续处理了
+			return;
 		}
 		super.channelRead(ctx,msg);
 	}
