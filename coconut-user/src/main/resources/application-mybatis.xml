@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="mybatisSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:impl/*.xml"/>
+    </bean>
+
+    <bean id="userinfoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.alan.user.dao.UserinfoMapper"/>
+        <property name="sqlSessionFactory" ref="mybatisSqlSessionFactory"/>
+    </bean>
+
+    <bean id = "dataSource" class = "com.alibaba.druid.pool.DruidDataSource" destroy-method = "close">
+        <!-- 数据库基本信息配置 -->
+        <property name = "url" value = "${mysql.url}" />
+        <property name = "username" value = "${mysql.username}" />
+        <property name = "password" value = "${mysql.password}" />
+        <property name = "driverClassName" value = "${mysql.driver}" />
+        <!-- 最大并发连接数 -->
+        <property name = "maxActive" value = "${mysql.maxActive}" />
+        <!-- 初始化连接数量 -->
+        <property name = "initialSize" value = "${mysql.initialSize}" />
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name = "maxWait" value = "${mysql.maxWait}" />
+        <!-- 最小空闲连接数 -->
+        <property name = "minIdle" value = "${mysql.minIdle}" />
+    </bean>
+
+    <bean name = "transactionManager" class ="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name = "dataSource" ref = "dataSource"/>
+    </bean>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>mysql.properties</value>
+            </list>
+        </property>
+    </bean>
+</beans>
