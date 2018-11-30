@@ -109,8 +109,27 @@
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
+            <resource>
+                <directory>src/main/conf/${envcfg.dir}</directory>
+            </resource>
         </resources>
         <directory>target</directory>
     </build>
-
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <envcfg.dir>dev</envcfg.dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>product</id>
+            <properties>
+                <envcfg.dir>product</envcfg.dir>
+            </properties>
+        </profile>
+    </profiles>
 </project>
