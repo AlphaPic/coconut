@@ -10,8 +10,13 @@ import java.io.IOException;
  */
 public class Main {
 	public static void main(String[] args) throws IOException {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-		context.start();
-		System.in.read();
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+//		LoginServiceImpl service = context.getBean(LoginServiceImpl.class);
+//		service.login("admin","admin");
+		String str = "fan:wen:long";
+		String[] values = str.split(":",4);
+		for (String value : values){
+			System.out.println(value);
+		}
 	}
 }

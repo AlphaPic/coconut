@@ -18,5 +18,5 @@ public interface ILoginService {
 	 * @param sessionId
 	 * @return
 	 */
-	public boolean logout(String sessionId);
+	public boolean logout(String username,String sessionId);
 }

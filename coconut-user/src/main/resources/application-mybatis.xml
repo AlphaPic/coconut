@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="mybatisSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath:impl/*.xml"/>
+        <property name="mapperLocations" value="classpath:impl/UserinfoMapper.xml"/>
     </bean>
 
     <bean id="userinfoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
