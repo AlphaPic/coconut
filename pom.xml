@@ -112,5 +112,6 @@
         <module>coconut-client</module>
         <module>coconut-user</module>
         <module>coconut-user-api</module>
+        <module>coconut-web</module>
     </modules>
 </project>
